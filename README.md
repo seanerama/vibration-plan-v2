@@ -5,7 +5,7 @@ AI-orchestrated development framework with 16 specialized roles for Claude Code,
 VibeOps turns a rough idea into a deployed, tested, documented project through a dependency-driven pipeline of AI roles — each with a focused responsibility, the right model for the job, and automatic handoffs to the next step.
 
 ```
-npx vibeops --claude
+npx spec-driven-devops --claude
 ```
 
 ## How It Works
@@ -57,19 +57,19 @@ flowchart LR
 
 ```bash
 # Claude Code
-npx vibeops --claude
+npx spec-driven-devops --claude
 
 # OpenCode
-npx vibeops --opencode
+npx spec-driven-devops --opencode
 
 # Gemini CLI
-npx vibeops --gemini
+npx spec-driven-devops --gemini
 
 # Codex CLI
-npx vibeops --codex
+npx spec-driven-devops --codex
 
 # All runtimes
-npx vibeops --all
+npx spec-driven-devops --all
 ```
 
 ### Run
@@ -389,7 +389,7 @@ Runs 110 assertions across 4 test suites:
 ## Uninstall
 
 ```bash
-npx vibeops --claude --uninstall
+npx spec-driven-devops --claude --uninstall
 ```
 
 Removes all commands, internals, hooks, and statusline config. Your project's `vibration-plan/` directory is untouched.
