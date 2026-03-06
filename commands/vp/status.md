@@ -11,13 +11,13 @@ active roles, available next steps, and overall progress.
 </objective>
 
 <context>
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init status`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init status`
 </context>
 
 <process>
 1. Load full status:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init status
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" init status
    ```
 
 2. Display a formatted status report:

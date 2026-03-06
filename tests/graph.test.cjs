@@ -5,7 +5,7 @@
 const {
   canRoleRun, getNextRoles, getWaitingRoles, getGraphStatus, getWorkflowSequence,
   isRoleComplete, isRoleReplaced,
-} = require('../vibeops/bin/lib/graph.cjs');
+} = require('../sdd/bin/lib/graph.cjs');
 
 // ─── Empty State (new project) ───────────────────────────────────────────────
 

@@ -18,26 +18,26 @@ Produces: vibration-plan/vision-document.md
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
-@~/.claude/vibeops/references/role-dependency-graph.md
+@~/.claude/sdd/workflows/run-role.md
+@~/.claude/sdd/references/role-dependency-graph.md
 </execution_context>
 
 <context>
 Role: vision-assistant
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role vision-assistant`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role vision-assistant`
 </context>
 
 <process>
 1. Load context:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role vision-assistant
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role vision-assistant
    ```
 
 2. Mark role active:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" state start-role vision-assistant
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" state start-role vision-assistant
    ```
 
 3. Execute Vision Assistant workflow:
@@ -69,7 +69,7 @@ Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role
 
 5. Complete role:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" state complete-role vision-assistant --output vibration-plan/vision-document.md
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" state complete-role vision-assistant --output vibration-plan/vision-document.md
    ```
 
 6. Auto-continue — check `vp-tools graph next` and immediately invoke the next role.

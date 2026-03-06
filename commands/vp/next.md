@@ -11,13 +11,13 @@ Highlights parallel opportunities and provides actionable commands.
 </objective>
 
 <context>
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init next`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init next`
 </context>
 
 <process>
 1. Load next-step context:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init next
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" init next
    ```
 
 2. Display formatted next steps:

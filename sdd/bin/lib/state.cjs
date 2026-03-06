@@ -1,5 +1,5 @@
 /**
- * State — STATE.md operations for vibeops
+ * State — STATE.md operations for spec-driven-devops
  *
  * Uses **Field:** value pattern for human-readable + machine-parseable state.
  * YAML frontmatter synced on every write for hooks/scripts.

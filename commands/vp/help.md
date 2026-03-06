@@ -1,28 +1,28 @@
 ---
 name: vp:help
-description: Show all vibeops commands and current workflow state
+description: Show all spec-driven-devops commands and current workflow state
 allowed-tools:
   - Read
   - Bash
 ---
 <objective>
-Display all available vibeops commands grouped by phase, with current
+Display all available spec-driven-devops commands grouped by phase, with current
 availability status for each.
 </objective>
 
 <context>
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" role list`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" role list`
 </context>
 
 <process>
 1. Load role list:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" role list
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" role list
    ```
 
 2. Display formatted help:
 
-   ## VibeOps Commands
+   ## Spec-Driven DevOps Commands
 
    ### Getting Started
    | Command | Description |

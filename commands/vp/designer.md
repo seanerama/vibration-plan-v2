@@ -18,15 +18,15 @@ Produces: vibration-plan/design-system.md
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
-@~/.claude/vibeops/references/role-dependency-graph.md
+@~/.claude/sdd/workflows/run-role.md
+@~/.claude/sdd/references/role-dependency-graph.md
 </execution_context>
 
 <context>
 Role: ui-ux-designer
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role ui-ux-designer`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role ui-ux-designer`
 </context>
 
 <process>

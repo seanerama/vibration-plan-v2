@@ -19,14 +19,14 @@ Produces: codebase-map.html
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
+@~/.claude/sdd/workflows/run-role.md
 </execution_context>
 
 <context>
 Role: codebase-mapper
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role codebase-mapper`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role codebase-mapper`
 </context>
 
 <process>

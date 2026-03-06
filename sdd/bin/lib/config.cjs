@@ -1,7 +1,7 @@
 /**
- * Config — Configuration CRUD operations for vibeops
+ * Config — Configuration CRUD operations for spec-driven-devops
  *
- * Three-tier resolution: hardcoded → user (~/.vibeops/defaults.json) → project (vibration-plan/config.json)
+ * Three-tier resolution: hardcoded → user (~/.sdd/defaults.json) → project (vibration-plan/config.json)
  */
 
 const fs = require('fs');
@@ -37,7 +37,7 @@ const HARDCODED_DEFAULTS = {
 // ─── Config Loading ──────────────────────────────────────────────────────────
 
 function getUserDefaultsPath() {
-  return path.join(os.homedir(), '.vibeops', 'defaults.json');
+  return path.join(os.homedir(), '.sdd', 'defaults.json');
 }
 
 function getProjectConfigPath(cwd) {

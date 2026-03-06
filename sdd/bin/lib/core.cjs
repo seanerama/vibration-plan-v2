@@ -1,5 +1,5 @@
 /**
- * Core — Shared utilities, constants, and output helpers for vibeops
+ * Core — Shared utilities, constants, and output helpers for spec-driven-devops
  */
 
 const fs = require('fs');

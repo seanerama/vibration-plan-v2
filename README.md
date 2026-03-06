@@ -1,8 +1,8 @@
-# VibeOps
+# Spec-Driven DevOps
 
 AI-orchestrated development framework with 16 specialized roles for Claude Code, OpenCode, Gemini CLI, and Codex.
 
-VibeOps turns a rough idea into a deployed, tested, documented project through a dependency-driven pipeline of AI roles — each with a focused responsibility, the right model for the job, and automatic handoffs to the next step.
+Spec-Driven DevOps turns a rough idea into a deployed, tested, documented project through a dependency-driven pipeline of AI roles — each with a focused responsibility, the right model for the job, and automatic handoffs to the next step.
 
 ```
 npx spec-driven-devops --claude
@@ -10,43 +10,18 @@ npx spec-driven-devops --claude
 
 ## How It Works
 
-Instead of one giant prompt, VibeOps breaks development into **16 specialized roles** organized in a dependency graph. Each role produces specific outputs that feed into the next. The workflow auto-chains — when one role finishes, the next one starts automatically.
+Instead of one giant prompt, SDD breaks development into **16 specialized roles** organized in a dependency graph. Each role produces specific outputs that feed into the next. The workflow auto-chains — when one role finishes, the next one starts automatically.
 
-```mermaid
-flowchart LR
-    Start["/vp:start"] --> Choice{New or\nExisting?}
+```
+/vp:start
+  ├─ New Project ──→ Vision → Architect → Planner → Builder → Tester → Deployer → SRE
+  │                    ↘ Designer ↗
+  └─ Existing ─────→ Retrofit → Planner → Builder → Tester → Deployer → SRE
 
-    Choice -->|New| VA[Vision\nAssistant]
-    Choice -->|Existing| RP[Retrofit\nPlanner]
-
-    VA -.->|optional| LA[Lead\nArchitect]
-    VA -.->|optional| UXD[UI/UX\nDesigner]
-    LA --> PP[Project\nPlanner]
-    UXD -.-> PP
-    RP --> PP
-
-    PP --> SM[Stage\nManager]
-    SM --> PT[Project\nTester]
-    SM -.-> HT[Handoff\nTester]
-    PT --> PD[Project\nDeployer]
-
-    SM -.-> TW[Technical\nWriter]
-    SM -.-> SA[Security\nAuditor]
-
-    PD --> SRE[SRE]
-
-    style VA fill:#4a9eff,color:#fff
-    style LA fill:#4a9eff,color:#fff
-    style UXD fill:#4a9eff,color:#fff
-    style RP fill:#ff6b6b,color:#fff
-    style PP fill:#ffd93d,color:#000
-    style SM fill:#6bcb77,color:#fff
-    style PT fill:#9b59b6,color:#fff
-    style HT fill:#9b59b6,color:#fff
-    style PD fill:#e67e22,color:#fff
-    style SRE fill:#e67e22,color:#fff
-    style TW fill:#e67e22,color:#fff
-    style SA fill:#e67e22,color:#fff
+                     Parallel/optional at any time after build:
+                       ├─ Handoff Tester
+                       ├─ Technical Writer
+                       └─ Security Auditor
 ```
 
 **Dashed lines** = optional or parallel. **Solid lines** = required dependency.
@@ -153,40 +128,30 @@ Already have a vision doc or architecture plan? Jump to any point:
 
 The dependency engine handles two workflow paths, OR dependencies, role replacement, and parallel execution.
 
-```mermaid
-graph TD
-    subgraph "New Project Path"
-        VA["Vision Assistant<br/><i>optional</i>"] -->|blocks| LA[Lead Architect]
-        LA -->|blocks| PP[Project Planner]
-        UXD["UI/UX Designer<br/><i>optional, parallel with LA</i>"] -.-> PP
-    end
+```
+  New Project Path                    Existing Project Path
+  ──────────────────                  ─────────────────────
+  Vision Assistant (optional)         Retrofit Planner
+        │                               (replaces VA + LA)
+        ▼                                     │
+  Lead Architect ◄── UI/UX Designer           │
+        │              (optional,             │
+        │               parallel)             │
+        ▼                                     │
+  Project Planner ◄──────────────────────────┘
+        │
+        ▼
+  Stage Manager
+        │
+        ├──────→ Project Tester ──→ Project Deployer ──→ SRE
+        │
+        ├─ ─ ─→ Handoff Tester     (parallel, optional)
+        ├─ ─ ─→ Technical Writer    (parallel, optional)
+        └─ ─ ─→ Security Auditor    (parallel, optional)
 
-    subgraph "Existing Project Path"
-        RP["Retrofit Planner<br/><i>replaces VA + LA</i>"] -->|blocks| PP2[Project Planner]
-    end
-
-    PP --> SM[Stage Manager]
-    PP2 --> SM
-
-    SM -->|blocks| PT[Project Tester]
-    SM -.->|parallel| HT[Handoff Tester]
-    SM -.->|parallel| TW[Technical Writer]
-    SM -.->|parallel| SA[Security Auditor]
-
-    PT -->|blocks| PD[Project Deployer]
-    PD -->|blocks| SRE[Site Reliability Engineer]
-
-    SM -.->|event: merge_conflict| MM[Merge Manager]
-    PP -.->|event: feature_request| FM[Feature Manager]
-
-    style VA fill:#4a9eff22,stroke:#4a9eff
-    style UXD fill:#4a9eff22,stroke:#4a9eff
-    style RP fill:#ff6b6b22,stroke:#ff6b6b
-    style MM fill:#66666622,stroke:#666
-    style FM fill:#66666622,stroke:#666
-    style HT fill:#9b59b622,stroke:#9b59b6
-    style TW fill:#e67e2222,stroke:#e67e22
-    style SA fill:#e67e2222,stroke:#e67e22
+  Event-triggered:
+        Stage Manager ─ ─ ─→ Merge Manager    (on merge conflict)
+        Project Planner ─ ─→ Feature Manager   (on feature request)
 ```
 
 ### Key Mechanics
@@ -201,13 +166,15 @@ graph TD
 
 When a role completes, the workflow automatically continues:
 
-```mermaid
-flowchart TD
-    Complete["Role completes"] --> Check["Check graph for<br/>available next roles"]
-    Check -->|1 role available| Auto["Auto-invoke next role"]
-    Check -->|Multiple available| Ask["Ask user which<br/>to start first"]
-    Check -->|None available| Done["Workflow complete!"]
-    Ask --> Auto
+```
+  Role completes
+       │
+       ▼
+  Check dependency graph for available next roles
+       │
+       ├─ 1 role available ──→ Auto-invoke next role
+       ├─ Multiple available ─→ Ask user which to start first ──→ Auto-invoke
+       └─ None available ─────→ Workflow complete!
 ```
 
 You don't manually type `/vp:build` after `/vp:plan` finishes — it just happens. The entire pipeline from `/vp:start` to `/vp:sre` can run with minimal user intervention.
@@ -250,7 +217,7 @@ Each role is assigned a model based on the complexity of its task. Three profile
 Three-tier config resolution (each layer overrides the previous):
 
 1. **Hardcoded defaults** — sensible baseline
-2. **User config** — `~/.vibeops/defaults.json` (applies to all projects)
+2. **User config** — `~/.sdd/defaults.json` (applies to all projects)
 3. **Project config** — `vibration-plan/config.json` (per-project)
 
 ### Key Settings
@@ -299,7 +266,7 @@ The `**Field:** value` pattern is both human-readable and regex-extractable. YAM
 
 ## Multi-Runtime Support
 
-VibeOps installs natively on four AI coding platforms:
+Spec-Driven DevOps installs natively on four AI coding platforms:
 
 | Runtime | Config Directory | Command Format |
 |---------|-----------------|----------------|
@@ -327,7 +294,7 @@ vibration-plan-v2/
 │       ├── vp-statusline.js    # Progress bar in status line
 │       ├── vp-context-monitor.js   # Context window warnings
 │       └── vp-session-start.js # Auto-detect VP projects
-├── vibeops/                    # Internals (copied to runtime config dir)
+├── sdd/                        # Internals (copied to runtime config dir)
 │   ├── bin/
 │   │   ├── vp-tools.cjs       # CLI dispatcher
 │   │   └── lib/

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Test runner for vibeops
+ * Test runner for spec-driven-devops
  */
 
 const fs = require('fs');
@@ -42,7 +42,7 @@ function assertEqual(actual, expected, message) {
 global.assert = assert;
 global.assertEqual = assertEqual;
 
-console.log('\nVibeOps Test Suite\n');
+console.log('\nSpec-Driven DevOps Test Suite\n');
 
 for (const file of testFiles) {
   const testName = file.replace('.test.cjs', '');

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * vp-tools — CLI dispatcher for vibeops
+ * vp-tools — CLI dispatcher for spec-driven-devops
  *
  * Usage: node vp-tools.cjs <command> [subcommand] [args...] [--raw] [--cwd <path>]
  *

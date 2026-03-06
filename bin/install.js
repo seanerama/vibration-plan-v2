@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * vibeops installer — Multi-runtime installation for Claude Code, OpenCode, Gemini CLI, and Codex
+ * spec-driven-devops installer — Multi-runtime installation for Claude Code, OpenCode, Gemini CLI, and Codex
  *
- * Usage: npx vibeops [--claude|--opencode|--gemini|--codex|--all] [-g|--global] [-u|--uninstall]
+ * Usage: npx spec-driven-devops [--claude|--opencode|--gemini|--codex|--all] [-g|--global] [-u|--uninstall]
  */
 
 const fs = require('fs');
@@ -27,13 +27,13 @@ const pkg = require('../package.json');
 // ─── Banner ──────────────────────────────────────────────────────────────────
 
 const banner = '\n' +
-  cyan + '  ██╗   ██╗██╗██████╗ ███████╗ ██████╗ ██████╗ ███████╗\n' +
-  '  ██║   ██║██║██╔══██╗██╔════╝██╔═══██╗██╔══██╗██╔════╝\n' +
-  '  ██║   ██║██║██████╔╝█████╗  ██║   ██║██████╔╝███████╗\n' +
-  '  ╚██╗ ██╔╝██║██╔══██╗██╔══╝  ██║   ██║██╔═══╝ ╚════██║\n' +
-  '   ╚████╔╝ ██║██████╔╝███████╗╚██████╔╝██║     ███████║\n' +
-  '    ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝' + reset + '\n\n' +
-  '  ' + bold + 'VibeOps' + reset + ' ' + dim + 'v' + pkg.version + reset + '\n' +
+  cyan + '  ███████╗██████╗ ██████╗ \n' +
+  '  ██╔════╝██╔══██╗██╔══██╗\n' +
+  '  ███████╗██║  ██║██║  ██║\n' +
+  '  ╚════██║██║  ██║██║  ██║\n' +
+  '  ███████║██████╔╝██████╔╝\n' +
+  '  ╚══════╝╚═════╝ ╚═════╝ ' + reset + '\n\n' +
+  '  ' + bold + 'Spec-Driven DevOps' + reset + ' ' + dim + 'v' + pkg.version + reset + '\n' +
   '  AI-orchestrated development framework\n' +
   '  for Claude Code, OpenCode, Gemini CLI, and Codex\n';
 
@@ -65,7 +65,7 @@ if (hasAll) {
 console.log(banner);
 
 if (hasHelp) {
-  console.log(`  ${yellow}Usage:${reset} npx vibeops [options]\n`);
+  console.log(`  ${yellow}Usage:${reset} npx spec-driven-devops [options]\n`);
   console.log(`  ${yellow}Options:${reset}`);
   console.log(`    ${cyan}-g, --global${reset}        Install globally (to config directory)`);
   console.log(`    ${cyan}-l, --local${reset}         Install locally (to current directory)`);
@@ -74,12 +74,12 @@ if (hasHelp) {
   console.log(`    ${cyan}--gemini${reset}            Install for Gemini CLI only`);
   console.log(`    ${cyan}--codex${reset}             Install for Codex CLI only`);
   console.log(`    ${cyan}--all${reset}               Install for all runtimes`);
-  console.log(`    ${cyan}-u, --uninstall${reset}     Remove vibeops files`);
+  console.log(`    ${cyan}-u, --uninstall${reset}     Remove installed files`);
   console.log(`    ${cyan}-h, --help${reset}          Show this help message\n`);
   console.log(`  ${yellow}Examples:${reset}`);
-  console.log(`    ${dim}npx vibeops --claude --global${reset}    Install for Claude Code`);
-  console.log(`    ${dim}npx vibeops --all --global${reset}       Install for all runtimes`);
-  console.log(`    ${dim}npx vibeops --claude --uninstall${reset} Remove from Claude Code\n`);
+  console.log(`    ${dim}npx spec-driven-devops --claude --global${reset}    Install for Claude Code`);
+  console.log(`    ${dim}npx spec-driven-devops --all --global${reset}       Install for all runtimes`);
+  console.log(`    ${dim}npx spec-driven-devops --claude --uninstall${reset} Remove from Claude Code\n`);
   process.exit(0);
 }
 
@@ -366,9 +366,9 @@ function installForRuntime(runtime) {
   }
   console.log(`  ${green}✓${reset} ${commandFiles.length} commands installed`);
 
-  // 2. Copy internals (vibeops/)
-  const srcInternals = path.join(__dirname, '..', 'vibeops');
-  const destInternals = path.join(configDir, 'vibeops');
+  // 2. Copy internals (sdd/)
+  const srcInternals = path.join(__dirname, '..', 'sdd');
+  const destInternals = path.join(configDir, 'sdd');
   copyDirRecursive(srcInternals, destInternals);
   console.log(`  ${green}✓${reset} CLI tools and workflows installed`);
 
@@ -466,7 +466,7 @@ function uninstallForRuntime(runtime) {
   removeDir(commandsDir);
 
   // Remove internals
-  removeDir(path.join(configDir, 'vibeops'));
+  removeDir(path.join(configDir, 'sdd'));
 
   // Remove hooks from settings.json (Claude only)
   if (runtime === 'claude') {

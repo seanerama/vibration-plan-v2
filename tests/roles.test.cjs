@@ -6,7 +6,7 @@ const {
   ROLES, PHASES,
   getRole, getRoleByCommand, roleIdToCommand, commandToRoleId,
   getAllRoles, getRolesForPhase, getRolesForPath, getRoleOutputPaths,
-} = require('../vibeops/bin/lib/roles.cjs');
+} = require('../sdd/bin/lib/roles.cjs');
 
 // ─── Role Registry ───────────────────────────────────────────────────────────
 

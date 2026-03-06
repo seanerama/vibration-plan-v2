@@ -23,7 +23,7 @@ Initializes vibration-plan/ for a brand new project.
 
 3. **Initialize config.json** from template:
    ```bash
-   node "$HOME/.claude/vibeops/bin/vp-tools.cjs" config ensure
+   node "$HOME/.claude/sdd/bin/vp-tools.cjs" config ensure
    ```
 
 4. **Update .gitignore**:
@@ -34,7 +34,7 @@ Initializes vibration-plan/ for a brand new project.
    ```bash
    git init
    git add .gitignore
-   git commit -m "Initial commit: project setup with vibeops"
+   git commit -m "Initial commit: project setup with spec-driven-devops"
    ```
 
 6. **Auto-invoke first role**:

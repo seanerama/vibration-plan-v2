@@ -41,7 +41,7 @@ process.stdin.on('end', () => {
         'STOP current work. Save your progress:',
         '',
         'If using VibrationPlan, run:',
-        '  node "$HOME/.claude/vibeops/bin/vp-tools.cjs" state record-session --stopped-at "description of where you stopped"',
+        '  node "$HOME/.claude/sdd/bin/vp-tools.cjs" state record-session --stopped-at "description of where you stopped"',
         '',
         'Then start a fresh session and run /vp:next to continue.',
       ].join('\n');

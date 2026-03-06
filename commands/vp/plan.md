@@ -18,15 +18,15 @@ Produces: vibration-plan/stage-instructions/ and vibration-plan/contracts/
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
-@~/.claude/vibeops/references/role-dependency-graph.md
+@~/.claude/sdd/workflows/run-role.md
+@~/.claude/sdd/references/role-dependency-graph.md
 </execution_context>
 
 <context>
 Role: project-planner
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role project-planner`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role project-planner`
 </context>
 
 <process>

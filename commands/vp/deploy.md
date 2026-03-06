@@ -17,14 +17,14 @@ from deploy-instruct.md. May use MCP tools for cloud platforms.
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
+@~/.claude/sdd/workflows/run-role.md
 </execution_context>
 
 <context>
 Role: project-deployer
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role project-deployer`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role project-deployer`
 </context>
 
 <process>

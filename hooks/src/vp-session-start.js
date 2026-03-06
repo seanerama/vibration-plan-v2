@@ -3,7 +3,7 @@
 /**
  * vp-session-start — SessionStart hook for Claude Code
  *
- * Checks for vibeops updates (cached, once per day) and displays
+ * Checks for spec-driven-devops updates (cached, once per day) and displays
  * VP state summary if STATE.md exists in the current project.
  */
 
@@ -56,8 +56,8 @@ process.stdin.on('end', () => {
         if (now - lastCheck < 24 * 60 * 60 * 1000) {
           shouldCheck = false;
           if (cache.updateAvailable) {
-            messages.push(`\nVibeOps update available: ${cache.latestVersion} (current: ${cache.currentVersion})`);
-            messages.push(`  Run: npx vibeops --claude --global`);
+            messages.push(`\nUpdate available: ${cache.latestVersion} (current: ${cache.currentVersion})`);
+            messages.push(`  Run: npx spec-driven-devops --claude --global`);
           }
         }
       }
@@ -66,7 +66,7 @@ process.stdin.on('end', () => {
     if (shouldCheck) {
       // We won't block on network check — just note the cache attempt
       try {
-        const pkg = require(path.join(__dirname, '..', '..', 'vibeops', 'package.json'));
+        const pkg = require(path.join(__dirname, '..', '..', 'sdd', 'package.json'));
         fs.writeFileSync(cachePath, JSON.stringify({
           timestamp: new Date().toISOString(),
           currentVersion: pkg?.version || 'unknown',

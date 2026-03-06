@@ -17,14 +17,14 @@ stage branches. Event-triggered when parallel Stage Managers create conflicts.
 </objective>
 
 <execution_context>
-@~/.claude/vibeops/workflows/run-role.md
+@~/.claude/sdd/workflows/run-role.md
 </execution_context>
 
 <context>
 Role: merge-manager
 Arguments: $ARGUMENTS
 
-Context loaded via: `node "$HOME/.claude/vibeops/bin/vp-tools.cjs" init run-role merge-manager`
+Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role merge-manager`
 </context>
 
 <process>

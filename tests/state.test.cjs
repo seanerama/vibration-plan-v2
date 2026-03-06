@@ -2,7 +2,7 @@
  * Tests for state.cjs — STATE.md operations
  */
 
-const { stateExtractField, stateReplaceField, extractFrontmatter, stripFrontmatter, buildStateFrontmatter } = require('../vibeops/bin/lib/state.cjs');
+const { stateExtractField, stateReplaceField, extractFrontmatter, stripFrontmatter, buildStateFrontmatter } = require('../sdd/bin/lib/state.cjs');
 
 // ─── Field Extraction ────────────────────────────────────────────────────────
 

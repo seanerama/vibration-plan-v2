@@ -2,7 +2,7 @@
  * Tests for config.cjs — Configuration management
  */
 
-const { deepMerge, configGet, configSet, HARDCODED_DEFAULTS } = require('../vibeops/bin/lib/config.cjs');
+const { deepMerge, configGet, configSet, HARDCODED_DEFAULTS } = require('../sdd/bin/lib/config.cjs');
 
 // ─── Deep Merge ──────────────────────────────────────────────────────────────
 

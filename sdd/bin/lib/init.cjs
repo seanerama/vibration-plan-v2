@@ -1,5 +1,5 @@
 /**
- * Init — Compound context-loading commands for vibeops
+ * Init — Compound context-loading commands for spec-driven-devops
  *
  * These are called by slash commands to load all context needed for a role.
  * Each returns a JSON blob with dependency status, config, and existing outputs.
