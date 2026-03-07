@@ -1,5 +1,5 @@
 ---
-name: vp:vision
+name: sdd:vision
 description: Start a Vision Assistant session to clarify your project idea
 allowed-tools:
   - Read
@@ -73,5 +73,5 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role vis
    ```
 
 6. Auto-continue — check `vp-tools graph next` and immediately invoke the next role.
-   Do NOT just display the next steps — invoke `/vp:architect` (or the appropriate next command) directly.
+   Do NOT just display the next steps — invoke `/sdd:architect` (or the appropriate next command) directly.
 </process>

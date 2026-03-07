@@ -1,6 +1,6 @@
 {
   "name": "spec-driven-devops",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "AI-orchestrated development framework with specialized roles for Claude Code, OpenCode, Gemini CLI, and Codex",
   "bin": {
     "spec-driven-devops": "bin/install.js"

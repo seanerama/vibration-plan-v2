@@ -40,7 +40,7 @@ Generic wrapper for executing any VibrationPlan role. All role commands referenc
    - Parse the output to determine available next roles
 
 9. **Auto-continue the workflow**:
-   - If exactly **1 next role** is available → Immediately invoke it via `/vp:<command>` (do NOT ask the user, just proceed)
+   - If exactly **1 next role** is available → Immediately invoke it via `/sdd:<command>` (do NOT ask the user, just proceed)
    - If **multiple roles** are available that can run in parallel → Tell the user which are available and ask which to start first, then invoke the chosen one
    - If **no roles** are available → Announce "Workflow complete!" with a summary of all outputs produced
    - IMPORTANT: The goal is a continuous flow. The user should not have to manually type the next command.

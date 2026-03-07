@@ -39,6 +39,6 @@ Initializes vibration-plan/ for a brand new project.
 
 6. **Auto-invoke first role**:
    - Ask: "Do you have a rough idea you'd like to explore first, or should we jump straight to architecture?"
-   - If user wants to explore → Immediately invoke `/vp:vision` (do NOT just tell them to run it)
-   - If user wants to skip → Immediately invoke `/vp:architect` (do NOT just tell them to run it)
+   - If user wants to explore → Immediately invoke `/sdd:vision` (do NOT just tell them to run it)
+   - If user wants to skip → Immediately invoke `/sdd:architect` (do NOT just tell them to run it)
    - IMPORTANT: Always invoke the next role directly. Never leave the user with a "run X" instruction.

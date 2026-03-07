@@ -1,5 +1,5 @@
 ---
-name: vp:docs
+name: sdd:docs
 description: Start a Technical Writer session to create public documentation
 allowed-tools:
   - Read

@@ -41,7 +41,7 @@ process.stdin.on('end', () => {
       if (stoppedAt && stoppedAt !== 'Initial setup') {
         messages.push(`  Last stopped at: ${stoppedAt}`);
       }
-      messages.push(`  Run /vp:next to see what to do next.`);
+      messages.push(`  Run /sdd:next to see what to do next.`);
     }
 
     // Version check (cached, once per day)

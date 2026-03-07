@@ -1,5 +1,5 @@
 ---
-name: vp:next
+name: sdd:next
 description: Show dependency-aware next steps in the workflow
 allowed-tools:
   - Read
@@ -28,14 +28,14 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init next`
 
    ### Ready to Run
    For each available role:
-   - **/vp:command** — Description
+   - **/sdd:command** — Description
      - Depends on: [completed deps]
      - Produces: [expected outputs]
      - Can run parallel with: [parallel roles, if any]
 
    ### Waiting On
    For each waiting role:
-   - /vp:command — Needs: [missing dependency]
+   - /sdd:command — Needs: [missing dependency]
 
    ### Tip
    [Contextual suggestion based on current state]

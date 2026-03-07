@@ -1,5 +1,5 @@
 ---
-name: vp:start
+name: sdd:start
 description: Begin a new or existing VibrationPlan project workflow
 argument-hint: "[new|existing] [--from <role>]"
 allowed-tools:
@@ -15,13 +15,13 @@ allowed-tools:
 Initialize a VibrationPlan workflow. Supports jumping to any role with --from.
 
 Usage:
-  /vp:start                    — interactive (asks new/existing)
-  /vp:start new                — new project, start from beginning
-  /vp:start existing           — existing project, start from retrofit
-  /vp:start --from architect   — new project, skip vision, start at architect
-  /vp:start --from plan        — skip vision + architect, start at planner
-  /vp:start --from build       — skip to build (assumes planning docs exist)
-  /vp:start existing --from plan — existing project, skip retrofit
+  /sdd:start                    — interactive (asks new/existing)
+  /sdd:start new                — new project, start from beginning
+  /sdd:start existing           — existing project, start from retrofit
+  /sdd:start --from architect   — new project, skip vision, start at architect
+  /sdd:start --from plan        — skip vision + architect, start at planner
+  /sdd:start --from build       — skip to build (assumes planning docs exist)
+  /sdd:start existing --from plan — existing project, skip retrofit
 </objective>
 
 <execution_context>
@@ -53,7 +53,7 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init start`
 3. **If STATE.md exists**:
    - Show current state summary
    - Ask: "Resume existing workflow or start fresh?"
-   - If resume → auto-invoke `/vp:next`
+   - If resume → auto-invoke `/sdd:next`
    - If fresh → confirm overwrite, then continue
 
 4. **If no STATE.md** (and no path argument):
@@ -73,12 +73,12 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init start`
       - If predecessor outputs exist (e.g., vibration-plan/vision-document.md, project-plan.md),
         note them as available context
       - If predecessor outputs DON'T exist, warn: "Note: <role> normally produces <file> — you may want to provide this context"
-   d. Immediately invoke the target role via `/vp:<command>`
+   d. Immediately invoke the target role via `/sdd:<command>`
 
 7. **If no --from** (normal flow):
    - **New project**: Ask if they want to explore ideas first or skip to architecture
-     - Explore → invoke `/vp:vision`
-     - Skip → invoke `/vp:architect`
-   - **Existing project**: invoke `/vp:retrofit`
+     - Explore → invoke `/sdd:vision`
+     - Skip → invoke `/sdd:architect`
+   - **Existing project**: invoke `/sdd:retrofit`
    - IMPORTANT: Always auto-invoke the next role directly.
 </process>

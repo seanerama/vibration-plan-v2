@@ -1,5 +1,5 @@
 ---
-name: vp:security
+name: sdd:security
 description: Start a Security Auditor session to review for vulnerabilities
 allowed-tools:
   - Read

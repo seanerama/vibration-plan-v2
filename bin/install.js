@@ -210,7 +210,7 @@ function convertForOpencode(content, configDir) {
     delete fm['allowed-tools'];
   }
 
-  // Convert name: vp:X to vp-X (flat naming)
+  // Convert name: sdd:X to sdd-X (flat naming)
   if (fm.name) {
     fm.name = fm.name.replace(':', '-');
   }
@@ -218,7 +218,7 @@ function convertForOpencode(content, configDir) {
   // Replace paths
   let converted = buildFrontmatter(fm) + '\n' + body;
   converted = converted.replace(/~\/\.claude\//g, configDir.replace(os.homedir(), '~/') + '/');
-  converted = converted.replace(/\/vp:/g, '/vp-');
+  converted = converted.replace(/\/sdd:/g, '/sdd-');
 
   return converted;
 }
@@ -247,14 +247,14 @@ function convertForCodex(content, configDir) {
   const { frontmatter: fm, body } = extractFrontmatterAndBody(content);
   if (!fm) return content;
 
-  // Convert name: vp:X to $vp-X skill
+  // Convert name: sdd:X to $sdd-X skill
   if (fm.name) {
     fm.name = fm.name.replace(':', '-');
   }
 
   let converted = buildFrontmatter(fm) + '\n' + body;
   converted = converted.replace(/~\/\.claude\//g, configDir.replace(os.homedir(), '~/') + '/');
-  converted = converted.replace(/\/vp:/g, '/vp-');
+  converted = converted.replace(/\/sdd:/g, '/sdd-');
   // $ARGUMENTS → {{VP_ARGS}}
   converted = converted.replace(/\$ARGUMENTS/g, '{{VP_ARGS}}');
 
@@ -323,17 +323,17 @@ function installForRuntime(runtime) {
   console.log(`  ${dim}Target: ${configDir}${reset}`);
 
   // 1. Copy commands
-  const srcCommands = path.join(__dirname, '..', 'commands', 'vp');
+  const srcCommands = path.join(__dirname, '..', 'commands', 'sdd');
   let destCommands;
 
   if (runtime === 'claude') {
-    destCommands = path.join(configDir, 'commands', 'vp');
+    destCommands = path.join(configDir, 'commands', 'sdd');
   } else if (runtime === 'opencode') {
-    destCommands = path.join(configDir, 'custom-instructions', 'vp');
+    destCommands = path.join(configDir, 'custom-instructions', 'sdd');
   } else if (runtime === 'gemini') {
-    destCommands = path.join(configDir, 'commands', 'vp');
+    destCommands = path.join(configDir, 'commands', 'sdd');
   } else {
-    destCommands = path.join(configDir, 'skills', 'vp');
+    destCommands = path.join(configDir, 'skills', 'sdd');
   }
 
   fs.mkdirSync(destCommands, { recursive: true });
@@ -359,7 +359,7 @@ function installForRuntime(runtime) {
     // Adjust filename for non-Claude runtimes (flatten colon notation)
     let destFile = file;
     if (runtime === 'opencode' || runtime === 'codex') {
-      destFile = file.replace(/^/, 'vp-').replace('.md', '.md');
+      destFile = file.replace(/^/, 'sdd-').replace('.md', '.md');
     }
 
     fs.writeFileSync(path.join(destCommands, destFile), content);
@@ -458,10 +458,10 @@ function uninstallForRuntime(runtime) {
 
   // Remove commands
   let commandsDir;
-  if (runtime === 'claude') commandsDir = path.join(configDir, 'commands', 'vp');
-  else if (runtime === 'opencode') commandsDir = path.join(configDir, 'custom-instructions', 'vp');
-  else if (runtime === 'gemini') commandsDir = path.join(configDir, 'commands', 'vp');
-  else commandsDir = path.join(configDir, 'skills', 'vp');
+  if (runtime === 'claude') commandsDir = path.join(configDir, 'commands', 'sdd');
+  else if (runtime === 'opencode') commandsDir = path.join(configDir, 'custom-instructions', 'sdd');
+  else if (runtime === 'gemini') commandsDir = path.join(configDir, 'commands', 'sdd');
+  else commandsDir = path.join(configDir, 'skills', 'sdd');
 
   removeDir(commandsDir);
 
@@ -549,7 +549,7 @@ async function main() {
 
   if (!hasUninstall) {
     console.log(`\n  ${green}${bold}Installation complete!${reset}`);
-    console.log(`\n  ${dim}Start a new session and run /vp:start to begin.${reset}\n`);
+    console.log(`\n  ${dim}Start a new session and run /sdd:start to begin.${reset}\n`);
   } else {
     console.log(`\n  ${green}${bold}Uninstall complete!${reset}\n`);
   }

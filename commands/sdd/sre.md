@@ -1,5 +1,5 @@
 ---
-name: vp:sre
+name: sdd:sre
 description: Start an SRE session for post-deployment operations
 allowed-tools:
   - Read

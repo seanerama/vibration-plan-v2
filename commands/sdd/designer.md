@@ -1,5 +1,5 @@
 ---
-name: vp:designer
+name: sdd:designer
 description: Start a UI/UX Designer session to define visual system
 allowed-tools:
   - Read

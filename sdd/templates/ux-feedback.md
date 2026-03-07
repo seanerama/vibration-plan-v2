@@ -15,13 +15,13 @@
 - **User Expectation**: [What they expected]
 - **Severity**: [Minor/Moderate/Major]
 - **Recommendation**: [Suggested fix]
-- **Route to**: Feature Manager (/vp:feature)
+- **Route to**: Feature Manager (/sdd:feature)
 
 ### Bug 1: [Title]
 - **Steps to Reproduce**: [Steps]
 - **Expected**: [What should happen]
 - **Actual**: [What happened]
-- **Route to**: Project Planner → Stage Manager (/vp:plan → /vp:build)
+- **Route to**: Project Planner → Stage Manager (/sdd:plan → /sdd:build)
 
 ## Overall Impression
 
@@ -31,5 +31,5 @@
 
 | # | Finding | Type | Route To |
 |---|---------|------|----------|
-| 1 | [Title] | UX Improvement | /vp:feature |
-| 2 | [Title] | Bug | /vp:plan |
+| 1 | [Title] | UX Improvement | /sdd:feature |
+| 2 | [Title] | Bug | /sdd:plan |

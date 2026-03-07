@@ -1,5 +1,5 @@
 ---
-name: vp:deploy
+name: sdd:deploy
 description: Start a Project Deployer session to deploy the project
 allowed-tools:
   - Read
@@ -38,5 +38,5 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role pro
    - Run deployment commands
    - Verify deployment is live and healthy
 5. Update project-state.md with deployment status.
-6. Complete role and auto-continue → immediately invoke `/vp:sre` (do NOT just display next steps)
+6. Complete role and auto-continue → immediately invoke `/sdd:sre` (do NOT just display next steps)
 </process>

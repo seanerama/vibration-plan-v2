@@ -1,6 +1,6 @@
 # Orchestrate Build Workflow
 
-Multi-stage build orchestration for /vp:build.
+Multi-stage build orchestration for /sdd:build.
 
 ## Overview
 
@@ -10,7 +10,7 @@ implementation across one or more stages.
 
 ## Single Stage Execution
 
-When `/vp:build <stage-number>` is called:
+When `/sdd:build <stage-number>` is called:
 
 1. Read `vibration-plan/stage-instructions/stage-{N}-instruct.md`
 2. Read relevant contracts from `vibration-plan/contracts/`
@@ -37,7 +37,7 @@ When `/vp:build <stage-number>` is called:
 8. Update project-state.md with stage completion
 
 9. If pipeline test = YES:
-   - Notify: "Stage {N} requires pipeline testing. Run /vp:test"
+   - Notify: "Stage {N} requires pipeline testing. Run /sdd:test"
 
 10. Merge to main:
     ```bash
@@ -47,7 +47,7 @@ When `/vp:build <stage-number>` is called:
 
 ## Multi-Stage Execution
 
-When `/vp:build --all` is called:
+When `/sdd:build --all` is called:
 
 1. Read all stage instruction files
 2. Parse stage dependencies to determine execution order
@@ -63,7 +63,7 @@ When `/vp:build --all` is called:
    e. Merge completed branches
 
 5. Between waves:
-   - Check for merge conflicts → suggest /vp:merge if needed
+   - Check for merge conflicts → suggest /sdd:merge if needed
    - Run integration tests if specified
    - Update project-state.md
 

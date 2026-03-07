@@ -39,4 +39,4 @@ None yet.
 
 **Last Session:** {{TIMESTAMP}}
 **Stopped At:** Initial setup
-**Resume Context:** Run /vp:next to see what to do first
+**Resume Context:** Run /sdd:next to see what to do first

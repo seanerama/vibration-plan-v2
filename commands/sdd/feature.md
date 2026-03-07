@@ -1,5 +1,5 @@
 ---
-name: vp:feature
+name: sdd:feature
 description: Start a Feature Manager session to assess a feature request
 argument-hint: "<feature-description>"
 allowed-tools:

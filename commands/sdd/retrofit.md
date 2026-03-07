@@ -1,5 +1,5 @@
 ---
-name: vp:retrofit
+name: sdd:retrofit
 description: Start a Retrofit Planner session for existing project analysis
 allowed-tools:
   - Read
@@ -49,5 +49,5 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role ret
    - **Phase 4: Output**
      - project-plan.md (architecture + planned changes)
      - project-state.md (current state documentation)
-4. Complete role and auto-continue → immediately invoke `/vp:plan` (do NOT just display next steps)
+4. Complete role and auto-continue → immediately invoke `/sdd:plan` (do NOT just display next steps)
 </process>

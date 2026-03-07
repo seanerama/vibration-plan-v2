@@ -1,5 +1,5 @@
 ---
-name: vp:architect
+name: sdd:architect
 description: Start a Lead Architect session to design project architecture
 argument-hint: "[resume]"
 allowed-tools:
@@ -68,5 +68,5 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role lea
    ```
 
 8. Auto-continue — check `vp-tools graph next` and immediately invoke the next role.
-   Do NOT just display the next steps — invoke the next command (typically `/vp:plan`) directly.
+   Do NOT just display the next steps — invoke the next command (typically `/sdd:plan`) directly.
 </process>

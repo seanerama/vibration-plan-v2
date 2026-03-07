@@ -1,5 +1,5 @@
 ---
-name: vp:merge
+name: sdd:merge
 description: Start a Merge Manager session to resolve branch conflicts
 allowed-tools:
   - Read

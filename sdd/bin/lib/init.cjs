@@ -104,7 +104,7 @@ function cmdInitRunRole(cwd, roleId, raw) {
   const result = {
     role_id: roleId,
     role_name: role.name,
-    command: `/vp:${role.command}`,
+    command: `/sdd:${role.command}`,
     phase: role.phase,
     phase_name: PHASES[role.phase]?.name || role.phase,
     can_run: depCheck.can_run,
@@ -130,7 +130,7 @@ function cmdInitRunRole(cwd, roleId, raw) {
 
 /**
  * init start
- * Context for /vp:start — checks existing state.
+ * Context for /sdd:start — checks existing state.
  */
 function cmdInitStart(cwd, raw) {
   const vpDir = path.join(cwd, 'vibration-plan');
@@ -164,7 +164,7 @@ function cmdInitStart(cwd, raw) {
 
 /**
  * init build <stage-number>
- * Context for /vp:build — loads stage instructions.
+ * Context for /sdd:build — loads stage instructions.
  */
 function cmdInitBuild(cwd, stageNumber, raw) {
   const stageDir = path.join(cwd, 'vibration-plan', 'stage-instructions');
@@ -224,7 +224,7 @@ function cmdInitBuild(cwd, stageNumber, raw) {
 
 /**
  * init status
- * Full context for /vp:status.
+ * Full context for /sdd:status.
  */
 function cmdInitStatus(cwd, raw) {
   const state = parseStateForGraph(cwd);
@@ -244,7 +244,7 @@ function cmdInitStatus(cwd, raw) {
 
 /**
  * init next
- * Dependency-aware next-step info for /vp:next.
+ * Dependency-aware next-step info for /sdd:next.
  */
 function cmdInitNext(cwd, raw) {
   const state = parseStateForGraph(cwd);

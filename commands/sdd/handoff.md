@@ -1,5 +1,5 @@
 ---
-name: vp:handoff
+name: sdd:handoff
 description: Start a Handoff Tester session for UX feedback with end users
 allowed-tools:
   - Read
@@ -37,8 +37,8 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role han
    - Work with the end user (through VL) to test the application
    - Document UX issues, confusing flows, missing features
    - Categorize findings:
-     - UX improvements → route to /vp:feature (Feature Manager)
-     - Bugs → route to /vp:plan → /vp:build (Project Planner → Stage Manager)
+     - UX improvements → route to /sdd:feature (Feature Manager)
+     - Bugs → route to /sdd:plan → /sdd:build (Project Planner → Stage Manager)
    - Write UX feedback to vibration-plan/ux-feedback/session-N.md
    - CANNOT edit code — documentation only
 4. Write feedback reports.

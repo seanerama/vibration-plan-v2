@@ -1,5 +1,5 @@
 ---
-name: vp:plan
+name: sdd:plan
 description: Start a Project Planner session to break project into stages
 allowed-tools:
   - Read
@@ -47,5 +47,5 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init run-role pro
      - Acceptance criteria
    - Produce interface contracts in vibration-plan/contracts/
 5. Write all stage instructions and contracts.
-6. Complete role and auto-continue → immediately invoke `/vp:build` (do NOT just display next steps)
+6. Complete role and auto-continue → immediately invoke `/sdd:build` (do NOT just display next steps)
 </process>

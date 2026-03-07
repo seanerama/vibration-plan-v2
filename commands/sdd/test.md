@@ -1,5 +1,5 @@
 ---
-name: vp:test
+name: sdd:test
 description: Start a Project Tester session to test pipelines and fix bugs
 allowed-tools:
   - Read

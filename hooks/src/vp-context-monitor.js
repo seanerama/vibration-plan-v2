@@ -43,14 +43,14 @@ process.stdin.on('end', () => {
         'If using VibrationPlan, run:',
         '  node "$HOME/.claude/sdd/bin/vp-tools.cjs" state record-session --stopped-at "description of where you stopped"',
         '',
-        'Then start a fresh session and run /vp:next to continue.',
+        'Then start a fresh session and run /sdd:next to continue.',
       ].join('\n');
     } else if (remaining <= 0.35) {
       // WARNING
       result.message = [
         '⚠️ Context window getting low (< 35% remaining).',
         'Begin wrapping up current work.',
-        'Consider running /vp:status to save state before the session ends.',
+        'Consider running /sdd:status to save state before the session ends.',
       ].join('\n');
     }
 

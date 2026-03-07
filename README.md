@@ -13,7 +13,7 @@ npx spec-driven-devops --claude
 Instead of one giant prompt, SDD breaks development into **16 specialized roles** organized in a dependency graph. Each role produces specific outputs that feed into the next. The workflow auto-chains — when one role finishes, the next one starts automatically.
 
 ```
-/vp:start
+/sdd:start
   ├─ New Project ──→ Vision → Architect → Planner → Builder → Tester → Deployer → SRE
   │                    ↘ Designer ↗
   └─ Existing ─────→ Retrofit → Planner → Builder → Tester → Deployer → SRE
@@ -52,7 +52,7 @@ npx spec-driven-devops --all
 Open your AI coding tool and start the workflow:
 
 ```
-/vp:start
+/sdd:start
 ```
 
 That's it. The framework asks if you're building something new or enhancing an existing project, initializes tracking, and auto-chains through the roles.
@@ -62,10 +62,10 @@ That's it. The framework asks if you're building something new or enhancing an e
 Already have a vision doc or architecture plan? Jump to any point:
 
 ```
-/vp:start --from architect    # Skip vision, start at architecture
-/vp:start --from plan         # Skip to planning (assumes architecture exists)
-/vp:start --from build        # Skip to building (assumes plan exists)
-/vp:start existing --from plan  # Existing project, skip retrofit
+/sdd:start --from architect    # Skip vision, start at architecture
+/sdd:start --from plan         # Skip to planning (assumes architecture exists)
+/sdd:start --from build        # Skip to building (assumes plan exists)
+/sdd:start existing --from plan  # Existing project, skip retrofit
 ```
 
 ## The 16 Roles
@@ -74,55 +74,55 @@ Already have a vision doc or architecture plan? Jump to any point:
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Vision Assistant | `/vp:vision` | Explore and shape a rough idea into a clear vision | `vision-document.md` |
-| Lead Architect | `/vp:architect` | Design architecture, tech stack, deployment strategy | `project-plan.md`, `deploy-instruct.md` |
-| UI/UX Designer | `/vp:designer` | Define visual system, design tokens, UX patterns | `design-system.md` |
-| Retrofit Planner | `/vp:retrofit` | Analyze existing codebase and plan changes | `project-plan.md`, `project-state.md` |
+| Vision Assistant | `/sdd:vision` | Explore and shape a rough idea into a clear vision | `vision-document.md` |
+| Lead Architect | `/sdd:architect` | Design architecture, tech stack, deployment strategy | `project-plan.md`, `deploy-instruct.md` |
+| UI/UX Designer | `/sdd:designer` | Define visual system, design tokens, UX patterns | `design-system.md` |
+| Retrofit Planner | `/sdd:retrofit` | Analyze existing codebase and plan changes | `project-plan.md`, `project-state.md` |
 
 ### Planning Phase
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Project Planner | `/vp:plan` | Break project into implementable stages with contracts | `stage-instructions/`, `contracts/` |
+| Project Planner | `/sdd:plan` | Break project into implementable stages with contracts | `stage-instructions/`, `contracts/` |
 
 ### Implementation Phase
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Stage Manager | `/vp:build` | Implement stages, manage branches, run parallel builds | Source code, tests |
-| Merge Manager | `/vp:merge` | Resolve conflicts between parallel stage branches | Merge report |
-| Feature Manager | `/vp:feature` | Assess mid-development feature requests | `feature-assessments/` |
+| Stage Manager | `/sdd:build` | Implement stages, manage branches, run parallel builds | Source code, tests |
+| Merge Manager | `/sdd:merge` | Resolve conflicts between parallel stage branches | Merge report |
+| Feature Manager | `/sdd:feature` | Assess mid-development feature requests | `feature-assessments/` |
 
 ### Testing Phase
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Project Tester | `/vp:test` | Test pipelines, find and fix bugs | `tests/` reports |
-| Handoff Tester | `/vp:handoff` | Document UX feedback with end users (no code editing) | `ux-feedback/` |
+| Project Tester | `/sdd:test` | Test pipelines, find and fix bugs | `tests/` reports |
+| Handoff Tester | `/sdd:handoff` | Document UX feedback with end users (no code editing) | `ux-feedback/` |
 
 ### Deployment Phase
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Technical Writer | `/vp:docs` | Create README, API docs, user guides | `README.md`, `docs/` |
-| Security Auditor | `/vp:security` | OWASP Top 10 review, dependency audit, secrets scan | `security-report.md` |
-| Project Deployer | `/vp:deploy` | Deploy using deploy-instruct.md and MCP tools | Deployed application |
-| SRE | `/vp:sre` | Monitoring, backups, recovery procedures | `recovery-plan.md` |
+| Technical Writer | `/sdd:docs` | Create README, API docs, user guides | `README.md`, `docs/` |
+| Security Auditor | `/sdd:security` | OWASP Top 10 review, dependency audit, secrets scan | `security-report.md` |
+| Project Deployer | `/sdd:deploy` | Deploy using deploy-instruct.md and MCP tools | Deployed application |
+| SRE | `/sdd:sre` | Monitoring, backups, recovery procedures | `recovery-plan.md` |
 
 ### Anytime
 
 | Role | Command | Description | Produces |
 |------|---------|-------------|----------|
-| Codebase Mapper | `/vp:map` | Interactive HTML diagram of your codebase | `codebase-map.html` |
+| Codebase Mapper | `/sdd:map` | Interactive HTML diagram of your codebase | `codebase-map.html` |
 
 ### Utility Commands
 
 | Command | Description |
 |---------|-------------|
-| `/vp:start` | Initialize a new or existing project workflow |
-| `/vp:status` | Show current workflow state and progress |
-| `/vp:next` | Show dependency-aware next steps |
-| `/vp:help` | List all commands with current state |
+| `/sdd:start` | Initialize a new or existing project workflow |
+| `/sdd:status` | Show current workflow state and progress |
+| `/sdd:next` | Show dependency-aware next steps |
+| `/sdd:help` | List all commands with current state |
 
 ## Dependency Graph
 
@@ -177,7 +177,7 @@ When a role completes, the workflow automatically continues:
        └─ None available ─────→ Workflow complete!
 ```
 
-You don't manually type `/vp:build` after `/vp:plan` finishes — it just happens. The entire pipeline from `/vp:start` to `/vp:sre` can run with minimal user intervention.
+You don't manually type `/sdd:build` after `/sdd:plan` finishes — it just happens. The entire pipeline from `/sdd:start` to `/sdd:sre` can run with minimal user intervention.
 
 ## Model Profiles
 

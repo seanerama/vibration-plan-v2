@@ -1,5 +1,5 @@
 ---
-name: vp:map
+name: sdd:map
 description: Start a Codebase Mapper session to create an interactive diagram
 allowed-tools:
   - Read

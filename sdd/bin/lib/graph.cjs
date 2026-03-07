@@ -137,7 +137,7 @@ function getNextRoles(state) {
       available.push({
         role_id: role.id,
         name: role.name,
-        command: `/vp:${role.command}`,
+        command: `/sdd:${role.command}`,
         phase: role.phase,
         phase_name: PHASES[role.phase]?.name || role.phase,
         description: role.description,
@@ -146,7 +146,7 @@ function getNextRoles(state) {
         parallel_with: parallelAvailable.map(pId => ({
           role_id: pId,
           name: ROLES[pId]?.name,
-          command: `/vp:${ROLES[pId]?.command}`,
+          command: `/sdd:${ROLES[pId]?.command}`,
         })),
       });
     }
@@ -179,7 +179,7 @@ function getWaitingRoles(state) {
       waiting.push({
         role_id: role.id,
         name: role.name,
-        command: `/vp:${role.command}`,
+        command: `/sdd:${role.command}`,
         phase: role.phase,
         reason: check.reason,
         missing: check.missing || [],
@@ -207,7 +207,7 @@ function getGraphStatus(state) {
     const entry = {
       role_id: role.id,
       name: role.name,
-      command: `/vp:${role.command}`,
+      command: `/sdd:${role.command}`,
       phase: role.phase,
       phase_name: PHASES[role.phase]?.name || role.phase,
     };

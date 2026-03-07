@@ -31,5 +31,5 @@ Initializes vibration-plan/ for an existing project that needs changes.
    - Add `.env` if not already present
 
 5. **Auto-invoke first role**:
-   - Immediately invoke `/vp:retrofit` to analyze the codebase and plan changes.
+   - Immediately invoke `/sdd:retrofit` to analyze the codebase and plan changes.
    - IMPORTANT: Do NOT just tell the user to run it — invoke it directly.

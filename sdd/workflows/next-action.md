@@ -1,6 +1,6 @@
 # Next Action Workflow
 
-Logic for /vp:next — determining what to do next in the workflow.
+Logic for /sdd:next — determining what to do next in the workflow.
 
 ## Resolution Logic
 
@@ -18,19 +18,19 @@ Logic for /vp:next — determining what to do next in the workflow.
 Based on current state, provide tailored advice:
 
 - If no roles active and no roles completed:
-  → "Run /vp:start to begin your project"
+  → "Run /sdd:start to begin your project"
 
 - If in Design phase with VA complete:
-  → "Ready for architecture. Run /vp:architect (and optionally /vp:designer in parallel)"
+  → "Ready for architecture. Run /sdd:architect (and optionally /sdd:designer in parallel)"
 
 - If in Planning phase:
-  → "Break the project into stages with /vp:plan"
+  → "Break the project into stages with /sdd:plan"
 
 - If all stages complete but no testing:
-  → "Implementation complete! Time to test: /vp:test"
+  → "Implementation complete! Time to test: /sdd:test"
 
 - If testing complete:
-  → "Ready for docs and deployment: /vp:docs and /vp:security can run in parallel"
+  → "Ready for docs and deployment: /sdd:docs and /sdd:security can run in parallel"
 
 - If deployment complete:
-  → "Project deployed! Consider /vp:sre for operational setup"
+  → "Project deployed! Consider /sdd:sre for operational setup"

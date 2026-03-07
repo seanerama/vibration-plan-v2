@@ -1,5 +1,5 @@
 ---
-name: vp:status
+name: sdd:status
 description: Show current VibrationPlan workflow state and progress
 allowed-tools:
   - Read
@@ -34,14 +34,14 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init status`
    - [list currently active roles]
 
    ### Available Next
-   - [list roles that can run now, with /vp:command]
+   - [list roles that can run now, with /sdd:command]
    - [note parallel opportunities]
 
    ### Waiting
    - [list roles waiting on dependencies]
 
    ### Event-Triggered (on demand)
-   - /vp:merge — when merge conflicts arise
-   - /vp:feature — when feature requests come in
-   - /vp:map — anytime (codebase diagram)
+   - /sdd:merge — when merge conflicts arise
+   - /sdd:feature — when feature requests come in
+   - /sdd:map — anytime (codebase diagram)
 </process>

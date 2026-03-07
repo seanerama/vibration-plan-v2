@@ -35,10 +35,10 @@
  *   validate outputs <role-id>         Verify role outputs exist
  *
  *   init run-role <role-id>            All context for running a role
- *   init start                         All context for /vp:start
+ *   init start                         All context for /sdd:start
  *   init build [stage-number]          All context for stage execution
- *   init status                        All context for /vp:status
- *   init next                          All context for /vp:next
+ *   init status                        All context for /sdd:status
+ *   init next                          All context for /sdd:next
  *
  *   generate-slug <text>               URL-safe slug
  *   current-timestamp                  ISO timestamp
@@ -216,7 +216,7 @@ switch (command) {
           return {
             id: role.id,
             name: role.name,
-            command: `/vp:${role.command}`,
+            command: `/sdd:${role.command}`,
             phase: PHASES[role.phase]?.name || role.phase,
             status,
             optional: role.optional,

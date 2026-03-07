@@ -1,5 +1,5 @@
 ---
-name: vp:build
+name: sdd:build
 description: Start Stage Manager to implement project stages
 argument-hint: "[stage-number|--all]"
 allowed-tools:
@@ -58,11 +58,11 @@ Context loaded via: `node "$HOME/.claude/sdd/bin/vp-tools.cjs" init build $ARGUM
    e. Update project-state.md with stage completion status
 
 5. If pipeline test = YES in stage instruction:
-   - Auto-invoke `/vp:test` immediately (do NOT just notify the user)
+   - Auto-invoke `/sdd:test` immediately (do NOT just notify the user)
 
 6. Complete and auto-continue:
    - Check `vp-tools graph next` for available roles
-   - If testing is needed → immediately invoke `/vp:test`
+   - If testing is needed → immediately invoke `/sdd:test`
    - Otherwise → immediately invoke the next available role
    - Do NOT just display next steps — invoke the next command directly
 </process>
